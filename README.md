@@ -15,11 +15,13 @@ Add the following code to the ``ManagePi`` folder, name the script ``client_app.
 
 ```python
 from flask import Flask, jsonify
+from flask_cors import CORS  # Import CORS
 import os
 import psutil
 import subprocess
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 @app.route('/cpu-usage', methods=['GET'])
 def get_cpu_usage():
